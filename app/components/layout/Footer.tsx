@@ -6,7 +6,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Portfolio. Made with ❤️
         </p>
         <a
-          href="https://github.com/your-repo"
+          href="https://github.com/meowlet/portfolio"
           className="text-blue-500 hover:underline"
           target="_blank"
           rel="noopener noreferrer"

@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/file.svg" />
+        <link rel="icon" href="/favicon.svg" />
         <title>Meowsica</title>
       </head>
       <body
