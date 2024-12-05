@@ -2,20 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  html {
+    overflow: hidden;
+  }
+  
+  body {
+    @apply bg-surface text-on-surface overflow-y-auto overflow-x-hidden;
+    height: 100vh;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Custom scrollbar */
+  body::-webkit-scrollbar {
+    width: 0;
+    display: none;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container {
+    @apply px-6 md:px-8 lg:px-12;
+    max-width: 1280px;
+  }
 }
