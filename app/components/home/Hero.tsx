@@ -17,8 +17,8 @@ export default function Hero() {
             Backend Developer
           </h1>
           <p className="text-lg mb-8 text-on-surface dark:text-dark-on-surface">
-            I'm a backend developer with a passion for building scalable and
-            efficient systems.
+            I&apos;m a backend developer with a passion for building scalable
+            and efficient systems.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
