@@ -1,9 +1,11 @@
-import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const nextConfig: NextConfig = {
+const withNextIntl = createNextIntlPlugin();
+
+const config = {
   images: {
     domains: ["images.unsplash.com", "picsum.photos"],
   },
 };
 
-module.exports = nextConfig;
+export default withNextIntl(config);
