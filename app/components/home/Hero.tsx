@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("hero");
+
   return (
     <section className="min-h-screen flex items-center justify-center py-12 md:py-20 pt-24 md:pt-12">
       <motion.div
@@ -13,19 +16,19 @@ export default function Hero() {
         className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
       >
         <div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Backend Developer
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r text-primary dark:text-dark-primary">
+            {t("title")}
           </h1>
-          <p className="text-lg mb-8 text-on-surface dark:text-dark-on-surface">
-            I&apos;m a backend developer with a passion for building scalable
-            and efficient systems.
+          <p className="text-lg mb-8 text-on-surface/80 dark:text-dark-on-surface/80">
+            {t("description")}
           </p>
-          <motion.button
+          <motion.a
+            href="#contact"
             whileHover={{ scale: 1.05 }}
-            className="bg-primary text-on-primary px-8 py-3 rounded-full"
+            className="inline-block bg-primary dark:bg-dark-primary text-on-primary dark:text-dark-on-primary px-8 py-3 rounded-full"
           >
-            Contact me
-          </motion.button>
+            {t("contactButton")}
+          </motion.a>
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("contact");
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -26,10 +28,10 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold text-primary dark:text-dark-primary mb-4">
-            Contact me
+            {t("title")}
           </h2>
           <p className="text-on-surface/70 dark:text-dark-on-surface/70">
-            Leave a message, I will reply as soon as possible.
+            {t("description")}
           </p>
         </motion.div>
 
@@ -42,7 +44,7 @@ export default function Contact() {
         >
           <div>
             <label htmlFor="name" className="block mb-2 font-medium">
-              Name <span className="text-red-500">*</span>
+              {t("name")} <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -54,7 +56,7 @@ export default function Contact() {
           </div>
           <div>
             <label htmlFor="email" className="block mb-2 font-medium">
-              Email <span className="text-red-500">*</span>
+              {t("email")} <span className="text-red-500">*</span>
             </label>
             <input
               type="email"
@@ -66,7 +68,7 @@ export default function Contact() {
           </div>
           <div>
             <label htmlFor="message" className="block mb-2 font-medium">
-              Message <span className="text-red-500">*</span>
+              {t("message")} <span className="text-red-500">*</span>
             </label>
             <textarea
               id="message"
@@ -81,7 +83,7 @@ export default function Contact() {
             whileHover={{ scale: 1.02 }}
             className="w-full bg-primary dark:bg-dark-primary text-on-primary dark:text-dark-on-primary py-3 rounded-lg hover:opacity-90 transition-opacity"
           >
-            Send message
+            {t("sendButton")}
           </motion.button>
         </motion.form>
       </div>

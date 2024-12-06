@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import { useTranslations } from "next-intl";
 export default function About() {
+  const t = useTranslations("about");
   return (
     <section id="about" className="py-20">
       <div className="container mx-auto px-4">
@@ -16,28 +17,23 @@ export default function About() {
         >
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-primary dark:text-dark-primary">
-              About me
+              {t("title")}
             </h2>
-            <p className="text-lg">
-              I am a backend developer with more than 1 years of experience in
-              building modern web applications. I am passionate about creating
-              great user experiences and have deep knowledge of the React
-              ecosystem.
-            </p>
+            <p className="text-lg">{t("description")}</p>
             <div className="flex gap-4">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 href="#contact"
                 className="bg-primary dark:bg-dark-primary text-on-primary dark:text-dark-on-primary px-6 py-2 rounded-full"
               >
-                Contact me
+                {t("contactButton")}
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 href="/cv.pdf"
                 className="border border-primary dark:border-dark-primary text-primary dark:text-dark-primary px-6 py-2 rounded-full"
               >
-                View CV
+                {t("cvButton")}
               </motion.a>
             </div>
           </div>

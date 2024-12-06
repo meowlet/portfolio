@@ -1,119 +1,117 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   CommandLineIcon,
   CodeBracketIcon,
-  WrenchScrewdriverIcon,
   CircleStackIcon,
-  BeakerIcon,
   CloudArrowUpIcon,
+  WrenchScrewdriverIcon,
+  DevicePhoneMobileIcon,
 } from "@heroicons/react/24/outline";
 
-const skills = [
-  {
-    category: "Backend",
-    icon: CommandLineIcon,
-    items: [
-      { name: "Bun.js", level: 90 },
-      { name: "Elysia.js", level: 90 },
-      { name: "Node.js", level: 80 },
-      { name: "Express.js", level: 65 },
-    ],
-  },
-  {
-    category: "Cloud",
-    icon: CloudArrowUpIcon,
-    items: [
-      { name: "AWS", level: 80 },
-      { name: "Cloudflare", level: 70 },
-    ],
-  },
-  {
-    category: "Database",
-    icon: CircleStackIcon,
-    items: [
-      { name: "MSSQL", level: 90 },
-      { name: "MongoDB", level: 80 },
-      { name: "Firebase", level: 80 },
-      { name: "Redis", level: 65 },
-    ],
-  },
-  {
-    category: "Frontend",
-    icon: CodeBracketIcon,
-    items: [
-      { name: "Astro.js", level: 65 },
-      { name: "Tailwind CSS", level: 60 },
-      { name: "React", level: 50 },
-      { name: "Next.js", level: 50 },
-    ],
-  },
-  {
-    category: "Tools",
-    icon: WrenchScrewdriverIcon,
-    items: [
-      { name: "Git", level: 85 },
-      { name: "Vim", level: 80 },
-    ],
-  },
-  {
-    category: "Design",
-    icon: BeakerIcon,
-    items: [
-      { name: "Adobe Illustrator", level: 95 },
-      { name: "Adobe Photoshop", level: 90 },
-      { name: "Figma", level: 70 },
-    ],
-  },
-];
-
 export default function Skills() {
-  return (
-    <section id="skills" className="py-20 bg-surface dark:bg-dark-surface">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
-          className="text-3xl font-bold text-center mb-12 text-primary dark:text-dark-primary "
-        >
-          Skills
-        </motion.h2>
+  const t = useTranslations("skills");
+  const categories = useTranslations("skills.categories");
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skillGroup, index) => (
+  const skills = [
+    {
+      category: "backend",
+      icon: CommandLineIcon,
+      items: [
+        { name: "Bun.js", level: 90 },
+        { name: "Elysia.js", level: 90 },
+        { name: "Node.js", level: 70 },
+        { name: "Express.js", level: 70 },
+      ],
+    },
+    {
+      category: "mobile",
+      icon: DevicePhoneMobileIcon,
+      items: [
+        { name: "Kotlin", level: 90 },
+        { name: "Jetpack Compose", level: 95 },
+        { name: "Android SDK", level: 85 },
+      ],
+    },
+    {
+      category: "database",
+      icon: CircleStackIcon,
+      items: [
+        { name: "MSSQL", level: 90 },
+        { name: "MongoDB", level: 85 },
+        { name: "Redis", level: 80 },
+      ],
+    },
+    {
+      category: "frontend",
+      icon: CodeBracketIcon,
+      items: [
+        { name: "Astro", level: 60 },
+        { name: "React", level: 50 },
+        { name: "Next.js", level: 50 },
+      ],
+    },
+    {
+      category: "cloud",
+      icon: CloudArrowUpIcon,
+      items: [
+        { name: "AWS", level: 80 },
+        { name: "Cloudflare", level: 30 },
+      ],
+    },
+    {
+      category: "tools",
+      icon: WrenchScrewdriverIcon,
+      items: [
+        { name: "Git", level: 80 },
+        { name: "Vim", level: 95 },
+        { name: "Linux", level: 85 },
+      ],
+    },
+  ];
+
+  return (
+    <section id="skills" className="py-20">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl font-bold text-primary dark:text-dark-primary mb-4">
+            {t("title")}
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((skill) => (
             <motion.div
-              key={skillGroup.category}
+              key={skill.category}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
-              transition={{ delay: index * 0.2 }}
-              className="p-6 rounded-xl bg-primary-container dark:bg-dark-primary-container shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-surface dark:bg-dark-surface rounded-xl p-6 shadow-lg shadow-outline/10 dark:shadow-dark-outline/10"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <skillGroup.icon className="w-6 h-6 text-on-primary-container dark:text-dark-on-primary-container" />
-                <h3 className="text-xl font-bold text-on-primary-container dark:text-dark-on-primary-container">
-                  {skillGroup.category}
-                </h3>
-              </div>
+              <skill.icon className="w-8 h-8 text-primary dark:text-dark-primary mb-4" />
+              <h3 className="text-xl font-bold mb-4">
+                {categories(skill.category)}
+              </h3>
               <div className="space-y-4">
-                {skillGroup.items.map((skill) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-sm font-medium text-on-primary-container dark:text-dark-on-primary-container">
-                        {skill.name}
-                      </span>
-                      <span className="text-sm text-on-primary-container dark:text-dark-on-primary-container">
-                        {skill.level}%
-                      </span>
+                {skill.items.map((item) => (
+                  <div key={item.name}>
+                    <div className="flex justify-between mb-1">
+                      <span>{item.name}</span>
+                      <span>{item.level}%</span>
                     </div>
-                    <div className="h-2 bg-surface dark:bg-dark-surface rounded-full overflow-hidden">
+                    <div className="h-2 bg-surface-variant dark:bg-dark-surface-variant rounded-full">
                       <motion.div
                         initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: false }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        whileInView={{ width: `${item.level}%` }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 1 }}
                         className="h-full bg-primary dark:bg-dark-primary rounded-full"
                       />
                     </div>
