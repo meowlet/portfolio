@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "title": "Backend & Android Developer",
+    "description": "Third-year Software Engineering student passionate about Backend and Android development. I focus on creating scalable and efficient solutions.",
+    "contactButton": "Contact me"
+  },
+  "about": {
+    "title": "About me",
+    "description": "As a third-year Software Engineering student, I have a solid foundation in Backend and Android development. Through personal projects, I have demonstrated the ability to create considerably ok applications.",
+    "contactButton": "Contact me",
+    "cvButton": "View CV"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "github": "GitHub Projects",
+    "viewDetails": "View details",
+    "noGithubDescription": "No description",
+    "featured": {
+      "tsukinari": {
+        "title": "Tsukinari",
+        "description": "Android manga reading application published on Google Play Store. Built with Kotlin and Jetpack Compose featuring community features like discussion forums and content sharing."
+      },
+      "discord_tts": {
+        "title": "Discord TTS Bot",
+        "description": "Officially verified Discord Text-to-Speech bot serving 3000+ servers with millions of members. Supports voice synthesis for multiple languages."
+      },
+      "himmel": {
+        "title": "Himmel",
+        "description": "Modern manga reading platform with high-performance backend using ElysiaJS and responsive frontend using Next.js. Features include user authentication and reading progress tracking."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "frontend": "Frontend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps",
+      "tools": "Development Tools"
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "description": "Leave a message, I will reply as soon as possible.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "sendButton": "Send message"
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    }
+  }
+}

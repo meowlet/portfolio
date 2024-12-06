@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "title": "Backend & Android Developer",
+    "description": "Sinh viên năm 3 ngành Kỹ thuật Phần mềm thích dev ứng dụng Backend và Android. Tôi luôn hướng đến các giải pháp có scalability cao và hiệu quả.",
+    "contactButton": "Liên hệ"
+  },
+  "about": {
+    "title": "Đôi nét",
+    "description": "Là một sinh viên năm 3 chuyên ngành Kỹ thuật Phần mềm, tôi có nền tảng vừa đủ về phát triển Backend và Android. Với kinh nghiệm thực tế thông qua các dự án cá nhân, làm được các app dùng ổn ổn.",
+    "contactButton": "Liên hệ",
+    "cvButton": "Xem CV"
+  },
+  "projects": {
+    "title": "Dự án nổi bật",
+    "github": "Dự án GitHub",
+    "noGithubDescription": "Không có mô tả",
+    "viewDetails": "Xem chi tiết",
+    "featured": {
+      "tsukinari": {
+        "title": "Tsukinari",
+        "description": "Ứng dụng đọc manga trên Android, được published trên Google Play Store. Dev bằng Kotlin và Jetpack Compose với các tính năng cộng đồng như diễn đàn thảo luận và chia sẻ nội dung."
+      },
+      "discord_tts": {
+        "title": "Discord TTS Bot",
+        "description": "Bot Text-to-Speech chính Discord verify, serve hơn 3000 server với hàng triệu thành viên. Hỗ trợ tổng hợp giọng nói cho nhiều ngôn ngữ."
+      },
+      "himmel": {
+        "title": "Himmel",
+        "description": "Nền tảng đọc manga hiện đại với backend hiệu năng cao sử dụng ElysiaJS và frontend responsive sử dụng Next.js. Tích hợp các tính năng như xác thực người dùng và theo dõi tiến độ đọc."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "frontend": "Frontend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps",
+      "tools": "Development Tools"
+    }
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "description": "Bấm gửi cho vui thôi chứ không gửi được đâu.",
+    "name": "Họ tên",
+    "email": "Email",
+    "message": "Lời nhắn",
+    "sendButton": "Gửi"
+  },
+  "nav": {
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "skills": "Kỹ năng",
+    "contact": "Liên hệ",
+    "theme": {
+      "light": "Bật đèn",
+      "dark": "Tắt đèn"
+    }
+  }
+}
