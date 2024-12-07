@@ -101,7 +101,7 @@ export default function Header() {
                 )}
               </button>
               <div className="py-2 px-4">
-                <LanguageSwitcher />
+                <LanguageSwitcher isMobile={true} />
               </div>
             </div>
           </motion.div>
@@ -127,7 +127,7 @@ export default function Header() {
           </motion.div>
 
           <div className="flex items-center gap-4">
-            <LanguageSwitcher />
+            <LanguageSwitcher isMobile={false} />
             <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-secondary/10 transition-colors"

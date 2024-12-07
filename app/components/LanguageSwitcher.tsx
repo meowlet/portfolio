@@ -10,7 +10,7 @@ const languages = [
   { code: "vi", label: "Tiếng Việt" },
 ];
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ isMobile }: { isMobile?: boolean }) {
   const locale = useLocale();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -37,13 +37,17 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className={`relative ${isMobile ? "w-full" : ""}`} ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
+        className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors ${
+          isMobile ? "w-full justify-between" : ""
+        }`}
       >
-        <GlobeAltIcon className="w-5 h-5" />
-        <span>{currentLanguage?.label}</span>
+        <div className="flex items-center gap-2">
+          <GlobeAltIcon className="w-5 h-5" />
+          <span>{currentLanguage?.label}</span>
+        </div>
         <ChevronDownIcon
           className={`w-4 h-4 transition-transform ${
             isOpen ? "rotate-180" : ""
@@ -52,7 +56,11 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 rounded-lg bg-surface dark:bg-dark-surface shadow-lg border border-secondary/20 dark:border-dark-secondary/20 py-1 z-50">
+        <div
+          className={`${
+            isMobile ? "w-full" : "absolute right-0 w-40"
+          } mt-2 rounded-lg bg-surface dark:bg-dark-surface shadow-lg border border-secondary/20 dark:border-dark-secondary/20 py-1 z-50`}
+        >
           {languages.map((lang) => (
             <button
               key={lang.code}
