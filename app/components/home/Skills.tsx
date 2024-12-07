@@ -93,7 +93,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
-              className="bg-surface dark:bg-dark-surface rounded-xl p-6 shadow-lg shadow-outline/10 dark:shadow-dark-outline/10"
+              className="bg-surface dark:bg-dark-surface rounded-xl p-6 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-primary/30 dark:shadow-primary/30 dark:hover:shadow-dark-primary/30"
             >
               <skill.icon className="w-8 h-8 text-primary dark:text-dark-primary mb-4" />
               <h3 className="text-xl font-bold mb-4">

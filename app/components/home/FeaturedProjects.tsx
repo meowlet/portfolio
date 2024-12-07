@@ -70,7 +70,7 @@ export default function FeaturedProjects() {
                 transition: { type: "spring", stiffness: 300 },
               }}
             >
-              <div className="p-6 h-full rounded-xl shadow-md hover:shadow-lg shadow-outline-variant/50 dark:shadow-dark-outline-variant/50 transition-shadow duration-300">
+              <div className="p-6 h-full rounded-xl shadow-md hover:shadow-lg shadow-primary/30 dark:shadow-dark-primary/30 transition-shadow duration-300">
                 <div className="flex flex-col h-full">
                   <project.icon className="w-12 h-12 text-primary dark:text-dark-primary mb-4" />
                   <h3 className="text-xl font-bold mb-2 group-hover:text-primary dark:group-hover:text-dark-primary transition-colors">

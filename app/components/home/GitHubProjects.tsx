@@ -72,7 +72,7 @@ export default function GitHubProjects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group bg-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-tertiary/10 dark:border-dark-tertiary/10 hover:border-tertiary dark:hover:border-dark-tertiary transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  className="group bg-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-tertiary/10 dark:border-dark-tertiary/10 hover:border-tertiary dark:hover:border-dark-tertiary transition-all duration-300 hover:shadow-lg hover:shadow-tertiary/30 dark:hover:shadow-dark-tertiary/30 hover:-translate-y-1"
                 >
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 group-hover:text-tertiary dark:group-hover:text-dark-tertiary transition-colors">
