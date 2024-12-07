@@ -32,7 +32,17 @@ export default function LanguageSwitcher({ isMobile }: { isMobile?: boolean }) {
   }, []);
 
   const switchLanguage = (langCode: string) => {
-    router.push(`/${langCode}`);
+    const pathname = window.location.pathname;
+    const currentLocale = locale;
+    let newPath = pathname;
+
+    if (pathname.startsWith(`/${currentLocale}`)) {
+      newPath = pathname.substring(currentLocale.length + 1);
+    } else if (pathname.startsWith("/")) {
+      newPath = pathname;
+    }
+
+    router.push(`/${langCode}${newPath}`);
     setIsOpen(false);
   };
 

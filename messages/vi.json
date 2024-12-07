@@ -58,5 +58,11 @@
       "light": "Bật đèn",
       "dark": "Tắt đèn"
     }
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "description": "Oops! Lạc đường mất rồi.",
+    "backButton": "Về trang chủ",
+    "clickHint": "Click bé Kurisu dễ thương để về trang chủ!"
   }
 }

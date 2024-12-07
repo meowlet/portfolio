@@ -58,5 +58,11 @@
       "light": "Light",
       "dark": "Dark"
     }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Oops! Looks like you're lost.",
+    "clickHint": "Click on this cute Kurisu to go back home!",
+    "backButton": "Back to home"
   }
 }

@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+
+const MotionLink = motion(Link);
+
 export default function About() {
   const t = useTranslations("about");
   return (
@@ -28,13 +32,13 @@ export default function About() {
               >
                 {t("contactButton")}
               </motion.a>
-              <motion.a
+              <MotionLink
                 whileHover={{ scale: 1.05 }}
                 href="/cv.pdf"
                 className="border border-primary dark:border-dark-primary text-primary dark:text-dark-primary px-6 py-2 rounded-full"
               >
                 {t("cvButton")}
-              </motion.a>
+              </MotionLink>
             </div>
           </div>
           <motion.div
