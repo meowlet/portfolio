@@ -6,6 +6,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { ThemeContext } from "@/app/context/ThemeContext";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { slideIn } from "@/app/utils/animations";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -34,11 +35,16 @@ export default function Header() {
           : "bg-surface/80 dark:bg-dark-surface/80 backdrop-blur-md"
       } border-b border-outline-variant dark:border-dark-outline-variant`}
     >
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <motion.nav
+        initial={false}
+        animate={isMenuOpen ? "open" : "closed"}
+        className="container mx-auto px-4 h-16 flex items-center justify-between"
+      >
         <motion.div
-          className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary bg-clip-text text-transparent"
+          variants={slideIn}
           whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          transition={{ type: "spring", stiffness: 400 }}
+          className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:from-secondary hover:to-primary transition-all duration-300"
         >
           Meowsica
         </motion.div>
@@ -68,10 +74,16 @@ export default function Header() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : -20 }}
-            transition={{ duration: 0.2 }}
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } absolute top-16 left-0 right-0 bg-surface dark:bg-dark-surface shadow-sm shadow-outline-variant dark:shadow-dark-outline-variant`}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+            }}
+            className={`absolute top-16 left-0 right-0 bg-surface dark:bg-dark-surface shadow-sm shadow-outline-variant dark:shadow-dark-outline-variant
+              ${
+                isMenuOpen
+                  ? "pointer-events-auto"
+                  : "pointer-events-none invisible"
+              }`}
           >
             <div className="p-4 space-y-4">
               {navItems.map((item) => (
@@ -142,7 +154,7 @@ export default function Header() {
             </motion.button>
           </div>
         </div>
-      </nav>
+      </motion.nav>
     </header>
   );
 }
