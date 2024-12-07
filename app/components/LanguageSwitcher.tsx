@@ -59,7 +59,7 @@ export default function LanguageSwitcher({ isMobile }: { isMobile?: boolean }) {
         <div
           className={`${
             isMobile ? "w-full" : "absolute right-0 w-40"
-          } mt-2 rounded-lg bg-surface dark:bg-dark-surface shadow-lg border border-secondary/20 dark:border-dark-secondary/20 py-1 z-50`}
+          } mt-2 rounded-lg bg-surface dark:bg-dark-surface border border-secondary/20 dark:border-dark-secondary/20 py-1 z-50`}
         >
           {languages.map((lang) => (
             <button
