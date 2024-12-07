@@ -12,7 +12,7 @@ export default function Contact() {
     const name = formData.get("name");
     const message = formData.get("message");
 
-    window.location.href = `mailto:your-email@example.com?subject=Liên hệ từ ${name}&body=${message}%0D%0A%0D%0ATừ: ${name}%0D%0AEmail: ${email}`;
+    window.location.href = `mailto:0911kiet@gmail.com?subject=Contact from ${name}&body=${message}%0D%0A%0D%0AFrom: ${name}%0D%0AEmail: ${email}`;
   };
 
   return (
