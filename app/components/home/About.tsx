@@ -41,14 +41,15 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false, amount: 0.3 }}
-            className="relative h-[400px] rounded-2xl overflow-hidden"
+            className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden"
           >
             <Image
               src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop"
               alt="About me"
-              width={800}
-              height={600}
+              fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
             />
           </motion.div>
         </motion.div>
