@@ -3,9 +3,13 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
-import { GithubRepo, getGithubRepos } from "@/app/utils/github";
-import { StarIcon } from "@heroicons/react/24/solid";
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import {
+  GithubRepo,
+  GithubSearchResponse,
+  getGithubRepos,
+} from "@/app/utils/github";
+import { StarIcon, ScaleIcon } from "@heroicons/react/24/solid";
+import { DocumentTextIcon, ClockIcon } from "@heroicons/react/24/outline";
 
 function ProjectSkeleton() {
   return (
@@ -28,14 +32,15 @@ function ProjectSkeleton() {
 }
 
 export default function GitHubProjects() {
-  const [repos, setRepos] = useState<GithubRepo[]>([]);
+  const [repos, setRepos] = useState<GithubSearchResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const t = useTranslations("projects");
+
   useEffect(() => {
     async function fetchRepos() {
       try {
         const data = await getGithubRepos();
-        setRepos(data.items);
+        setRepos(data);
       } catch (error) {
         console.error("Error fetching repos:", error);
       } finally {
@@ -45,27 +50,70 @@ export default function GitHubProjects() {
     fetchRepos();
   }, []);
 
+  function formatSize(size: number): string {
+    if (size < 1024) return `${size}KB`;
+    return `${(size / 1024).toFixed(1)}MB`;
+  }
+
   return (
     <section
       id="projects"
       className="py-20 bg-tertiary/5 dark:bg-dark-tertiary/5"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}
-          className="text-3xl font-bold text-center mb-12 text-tertiary dark:text-dark-tertiary"
+          className="text-center mb-12"
         >
-          {t("github")}
-        </motion.h2>
+          <div className="inline-block mb-4 font-mono text-sm bg-tertiary-container/40 dark:bg-dark-tertiary-container/40 rounded-lg px-4 py-2">
+            <div className="flex flex-col gap-1">
+              <span className="text-on-tertiary-container/70 dark:text-dark-on-tertiary-container/70">
+                {`$ curl -H "Authorization: Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN?.slice(
+                  0,
+                  4
+                )}..." \\`}
+              </span>
+              <span className="text-on-tertiary-container/70 dark:text-dark-on-tertiary-container/70">
+                {`  "https://api.github.com/search/repositories?q=user:${process.env.NEXT_PUBLIC_GITHUB_USERNAME}"`}
+              </span>
+              <span className="text-on-tertiary-container dark:text-dark-on-tertiary-container">
+                {repos
+                  ? `✓ fetched ${repos.items.length} repositories (${formatSize(
+                      repos.total_size
+                    )} total)`
+                  : "fetching..."}
+              </span>
+            </div>
+          </div>
+          <h2 className="text-3xl font-bold text-center mb-4 text-tertiary dark:text-dark-tertiary">
+            {t("github")}
+          </h2>
+          {repos && (
+            <div className="flex justify-center gap-8 text-sm font-mono text-tertiary/70 dark:text-dark-tertiary/70">
+              <span className="flex items-center gap-1">
+                <StarIcon className="w-4 h-4" />
+                {repos.total_stars} stars
+              </span>
+              <span className="flex items-center gap-1">
+                <DocumentTextIcon className="w-4 h-4" />
+                {repos.total_commits} commits
+              </span>
+              <span className="flex items-center gap-1">
+                <ScaleIcon className="w-4 h-4" />
+                {formatSize(repos.total_size)}
+              </span>
+            </div>
+          )}
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {loading
             ? Array(6)
                 .fill(0)
                 .map((_, index) => <ProjectSkeleton key={index} />)
-            : repos.map((repo, index) => (
+            : repos?.items.map((repo, index) => (
                 <motion.div
                   key={repo.name}
                   initial={{ opacity: 0, y: 20 }}
@@ -108,14 +156,21 @@ export default function GitHubProjects() {
                           →
                         </span>
                       </a>
-                      <div className="flex items-center gap-4 text-tertiary/70 dark:text-dark-tertiary/70">
-                        <div className="flex items-center gap-1">
-                          <StarIcon className="w-5 h-5 text-tertiary dark:text-dark-tertiary" />
+                      <div className="flex items-center gap-4 text-tertiary/70 dark:text-dark-tertiary/70 text-sm">
+                        <div className="flex items-center gap-1" title="Stars">
+                          <StarIcon className="w-4 h-4" />
                           <span>{repo.stargazers_count}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <DocumentTextIcon className="w-5 h-5 text-tertiary dark:text-dark-tertiary" />
+                        <div
+                          className="flex items-center gap-1"
+                          title="Commits"
+                        >
+                          <DocumentTextIcon className="w-4 h-4" />
                           <span>{repo.commit_count}</span>
+                        </div>
+                        <div className="flex items-center gap-1" title="Size">
+                          <ScaleIcon className="w-4 h-4" />
+                          <span>{formatSize(repo.size)}</span>
                         </div>
                       </div>
                     </div>
