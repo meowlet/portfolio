@@ -10,8 +10,10 @@ import {
   WrenchScrewdriverIcon,
   DevicePhoneMobileIcon,
 } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 export default function Skills() {
+  const [showSecrets, setShowSecrets] = useState(false);
   const t = useTranslations("skills");
   const categories = useTranslations("skills.categories");
 
@@ -20,28 +22,28 @@ export default function Skills() {
       category: "backend",
       icon: CommandLineIcon,
       items: [
-        { name: "Bun.js", level: 90 },
+        { name: "Bun.js", level: 75 },
         { name: "Elysia.js", level: 90 },
-        { name: "Node.js", level: 70 },
-        { name: "Express.js", level: 70 },
+        { name: "Node.js", level: 65 },
+        { name: "Express.js", level: 60 },
       ],
     },
     {
       category: "mobile",
       icon: DevicePhoneMobileIcon,
       items: [
-        { name: "Kotlin", level: 90 },
-        { name: "Jetpack Compose", level: 95 },
-        { name: "Android SDK", level: 85 },
+        { name: "Kotlin", level: 80 },
+        { name: "Jetpack Compose", level: 75 },
+        { name: "Android SDK", level: 75 },
       ],
     },
     {
       category: "database",
       icon: CircleStackIcon,
       items: [
-        { name: "MSSQL", level: 90 },
-        { name: "MongoDB", level: 85 },
-        { name: "Redis", level: 80 },
+        { name: "MSSQL", level: 80 },
+        { name: "MongoDB", level: 75 },
+        { name: "Redis", level: 65 },
       ],
     },
     {
@@ -49,7 +51,7 @@ export default function Skills() {
       icon: CodeBracketIcon,
       items: [
         { name: "Astro", level: 60 },
-        { name: "React", level: 50 },
+        { name: "React", level: 55 },
         { name: "Next.js", level: 50 },
       ],
     },
@@ -57,17 +59,17 @@ export default function Skills() {
       category: "cloud",
       icon: CloudArrowUpIcon,
       items: [
-        { name: "AWS", level: 80 },
-        { name: "Cloudflare", level: 30 },
+        { name: "AWS", level: 60 },
+        { name: "Cloudflare", level: 40 },
       ],
     },
     {
       category: "tools",
       icon: WrenchScrewdriverIcon,
       items: [
-        { name: "Git", level: 80 },
+        { name: "Git", level: 75 },
+        { name: "Linux", level: 70 },
         { name: "Vim", level: 95 },
-        { name: "Linux", level: 85 },
       ],
     },
   ];
@@ -81,9 +83,51 @@ export default function Skills() {
           viewport={{ once: false, amount: 0.3 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-primary dark:text-dark-primary mb-4">
+          <div className="inline-block mb-4 font-mono text-sm">
+            <div className="bg-primary-container/40 dark:bg-dark-primary-container/40 rounded-lg px-4 py-2 mb-2">
+              <span className="text-on-primary-container/70 dark:text-dark-on-primary-container/70">
+                {`$ analyzing_skills.sh --verbose`}
+              </span>
+            </div>
+            {showSecrets && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-error-container dark:bg-dark-error-container/40 rounded-lg px-4 py-2 text-on-error-container dark:text-dark-on-error-container/70"
+              >
+                <span className="">{`$ cat ~/.secret_stats`}</span>
+                <div className="mt-2 space-y-1 text-left">
+                  <p>Gaming hours: 1000+</p>
+                  <p>Visual novels read: 999</p>
+                  <p>Keyboard destroyed: 2</p>
+                  <p>Bugs created: ∞</p>
+                </div>
+              </motion.div>
+            )}
+            <button
+              onClick={() => setShowSecrets(!showSecrets)}
+              className="mt-2 text-primary/70 dark:text-dark-primary/70 hover:text-primary dark:hover:text-dark-primary"
+            >
+              {showSecrets ? "$ hide_secrets.sh" : "$ show_secrets.sh"}
+            </button>
+          </div>
+          <h2 className="text-3xl font-bold text-primary dark:text-dark-primary mb-2">
             {t("title")}
           </h2>
+          <p className="text-sm font-mono text-on-primary-container/70 dark:text-dark-on-primary-container/70">
+            {`${skills.reduce(
+              (acc, curr) => acc + curr.items.length,
+              0
+            )} skills loaded • ${skills.length} categories • ${skills
+              .reduce(
+                (acc, curr) =>
+                  acc +
+                  curr.items.reduce((sum, item) => sum + item.level, 0) /
+                    curr.items.length,
+                0
+              )
+              .toFixed(1)}% average proficiency`}
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
