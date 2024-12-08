@@ -33,10 +33,10 @@ export default function Hero() {
         </motion.div>
         <motion.div variants={scaleIn} className="flex justify-end">
           <Image
-            src="https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=500&h=500&fit=crop"
+            src="/hero.png"
             alt="Developer"
-            width={500}
-            height={500}
+            width={1080}
+            height={1080}
             className="rounded-2xl shadow-lg object-cover w-full md:w-auto"
             priority
           />
