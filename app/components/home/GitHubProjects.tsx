@@ -3,13 +3,9 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
-import {
-  GithubRepo,
-  GithubSearchResponse,
-  getGithubRepos,
-} from "@/app/utils/github";
+import { GithubSearchResponse, getGithubRepos } from "@/app/utils/github";
 import { StarIcon, ScaleIcon } from "@heroicons/react/24/solid";
-import { DocumentTextIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 
 function ProjectSkeleton() {
   return (
