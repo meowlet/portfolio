@@ -7,6 +7,7 @@ import { ThemeContext } from "@/app/context/ThemeContext";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { slideIn } from "@/app/utils/animations";
+import Link from "next/link";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
