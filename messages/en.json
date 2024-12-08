@@ -63,6 +63,9 @@
     "title": "Page not found",
     "description": "Oops! Looks like you're lost.",
     "clickHint": "Click on this cute Kurisu to go back home!",
-    "backButton": "Back to home"
+    "backButton": "Back to home",
+    "darkModeHint": "Oh no, dark mode makes me look creepy! Switch to light mode >.<",
+    "switchToLight": "Switch to light mode",
+    "stayInDark": "Stay in dark mode"
   }
 }

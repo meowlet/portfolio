@@ -1,12 +1,12 @@
 {
   "hero": {
     "title": "Backend & Android Developer",
-    "description": "Sinh viên năm 3 ngành Kỹ thuật Phần mềm thích dev ứng dụng Backend và Android. Tôi luôn hướng đến các giải pháp có scalability cao và hiệu quả.",
+    "description": "Sinh viên năm 3 ngành Kỹ thuật Phần mềm thích làm Backend dev, thích đặt nặng scalability và maintainability.",
     "contactButton": "Liên hệ"
   },
   "about": {
     "title": "Đôi nét",
-    "description": "Là một sinh viên năm 3 chuyên ngành Kỹ thuật Phần mềm, tôi có nền tảng vừa đủ về phát triển Backend và Android. Với kinh nghiệm thực tế thông qua các dự án cá nhân, làm được các app dùng ổn ổn.",
+    "description": "Là sinh viên năm 3 chuyên ngành Kỹ thuật Phần mềm nên có nền tảng vừa đủ để dev Backend và Android. Có kinh nghiệm thực tế thông qua các dự án cá nhân, làm được các app/api dùng tàm tạm.",
     "contactButton": "Liên hệ",
     "cvButton": "Xem CV"
   },
@@ -18,11 +18,11 @@
     "featured": {
       "tsukinari": {
         "title": "Tsukinari",
-        "description": "Ứng dụng đọc manga trên Android, được published trên Google Play Store. Dev bằng Kotlin và Jetpack Compose với các tính năng cộng đồng như diễn đàn thảo luận và chia sẻ nội dung."
+        "description": "Ứng dụng đọc manga trên Android, được published trên Google Play Store. Dev bằng Kotlin và Jetpack Compose, có các tính năng cộng đồng như diễn đàn thảo luận và chia sẻ nội dung."
       },
       "discord_tts": {
         "title": "Discord TTS Bot",
-        "description": "Bot Text-to-Speech chính Discord verify, serve hơn 3000 server với hàng triệu thành viên. Hỗ trợ tổng hợp giọng nói cho nhiều ngôn ngữ."
+        "description": "Bot Text-to-Speech được chính Discord verify, đang serve hơn 3000 server với hàng triệu member. Hỗ trợ giọng nói cho hơn 50 ngôn ngữ."
       },
       "himmel": {
         "title": "Himmel",
@@ -43,7 +43,7 @@
   },
   "contact": {
     "title": "Liên hệ",
-    "description": "Bấm gửi cho vui thôi chứ không gửi được đâu.",
+    "description": "Bấm gửi vui thôi chứ không gửi được.",
     "name": "Họ tên",
     "email": "Email",
     "message": "Lời nhắn",
@@ -63,6 +63,9 @@
     "title": "Không tìm thấy trang",
     "description": "Oops! Lạc đường mất rồi.",
     "backButton": "Về trang chủ",
-    "clickHint": "Click bé Kurisu dễ thương để về trang chủ!"
+    "clickHint": "Click bé Kurisu dễ thương để về trang chủ!",
+    "darkModeHint": "Do dark mode nên tui hết dễ thương rồi! Switch qua light mode đi!",
+    "switchToLight": "Bật đèn",
+    "stayInDark": "Không làm gì cả"
   }
 }
