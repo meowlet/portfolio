@@ -67,5 +67,16 @@
     "darkModeHint": "Oh no, dark mode makes me look creepy! Switch to light mode >.<",
     "switchToLight": "Switch to light mode",
     "stayInDark": "Stay in dark mode"
+  },
+  "coverDesign": {
+    "title": "Novel/Manga Cover Design staff of AMAK",
+    "description": "Specializing in modern anime/manga style book cover design with focus on beautiful typography and composition.",
+    "services": {
+      "title": "My services",
+      "cover": "Front and back cover design for light novels published by AMAK",
+      "gift": "Gift design for light novels published by AMAK",
+      "typography": "Title and text typography design for light novels/manga published by AMAK"
+    },
+    "viewGallery": "View showcase"
   }
 }

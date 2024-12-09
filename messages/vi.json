@@ -18,7 +18,7 @@
     "featured": {
       "tsukinari": {
         "title": "Tsukinari",
-        "description": "Ứng dụng đọc manga trên Android, được published trên Google Play Store. Dev bằng Kotlin và Jetpack Compose, có các tính năng cộng đồng như diễn đàn thảo luận và chia sẻ nội dung."
+        "description": "Ứng dụng đọc manga trên Android, được published trên Google Play Store. Dev bằng Kotlin và Jetpack Compose, có các tính năng cộng đồng như diễn đàn thảo luận và chia sẻ n��i dung."
       },
       "discord_tts": {
         "title": "Discord TTS Bot",
@@ -67,5 +67,16 @@
     "darkModeHint": "Do dark mode nên tui hết dễ thương rồi! Switch qua light mode đi!",
     "switchToLight": "Bật đèn",
     "stayInDark": "Không làm gì cả"
+  },
+  "coverDesign": {
+    "title": "Nhân viên thiết kế bìa Novel/Manga của AMAK",
+    "description": "Thiết kế bìa novel với phong cách anime/manga hiện đại, tập trung vào typography và composition đẹp mắt.",
+    "services": {
+      "title": "Services",
+      "cover": "Thiết kế bìa trước và sau cho sách do AMAK phát hành",
+      "gift": "Thiết kế quà tặng kèm theo sách do AMAK phát hành",
+      "typography": "Thiết kế typography cho tiêu đề và text trên sách do AMAK phát hành"
+    },
+    "viewGallery": "Xem showcase"
   }
 }
