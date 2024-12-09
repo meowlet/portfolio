@@ -8,6 +8,7 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useContext } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { ThemeContext } from "./context/ThemeContext";
+import Head from "next/head";
 
 export default function NotFound() {
   const t = useTranslations("notFound");
@@ -15,6 +16,9 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative">
+      <Head>
+        <title>404</title>
+      </Head>
       <div className="absolute top-4 right-4 flex gap-2">
         <motion.button
           onClick={toggleTheme}
