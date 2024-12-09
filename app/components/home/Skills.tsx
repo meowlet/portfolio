@@ -114,20 +114,24 @@ export default function Skills() {
           <h2 className="text-3xl font-bold text-primary dark:text-dark-primary mb-2">
             {t("title")}
           </h2>
-          <p className="text-sm font-mono text-on-primary-container/70 dark:text-dark-on-primary-container/70">
-            {`${skills.reduce(
-              (acc, curr) => acc + curr.items.length,
-              0
-            )} skills loaded • ${skills.length} categories • ${skills
-              .reduce(
-                (acc, curr) =>
-                  acc +
-                  curr.items.reduce((sum, item) => sum + item.level, 0) /
-                    curr.items.length,
+          <div className="text-sm font-mono text-on-primary-container/70 dark:text-dark-on-primary-container/70">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+              <span>{`${skills.reduce(
+                (acc, curr) => acc + curr.items.length,
                 0
-              )
-              .toFixed(1)}% average proficiency`}
-          </p>
+              )} skills loaded`}</span>
+              <span>{`${skills.length} categories`}</span>
+              <span>{`${skills
+                .reduce(
+                  (acc, curr) =>
+                    acc +
+                    curr.items.reduce((sum, item) => sum + item.level, 0) /
+                      curr.items.length,
+                  0
+                )
+                .toFixed(1)}% average proficiency`}</span>
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
