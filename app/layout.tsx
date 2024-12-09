@@ -39,7 +39,7 @@ const googleSans = localFont({
 
 export const metadata: Metadata = {
   title: "Meowsica",
-  description: "Music Application",
+  description: "Anh Kiệt's Portfolio",
 };
 
 export default async function RootLayout({
@@ -51,10 +51,6 @@ export default async function RootLayout({
 
   return (
     <html suppressHydrationWarning>
-      <head>
-        <title>Meowsica</title>
-        <link rel="icon" href="/favicon.svg" />
-      </head>
       <body
         className={`${googleSans.variable} font-sans transition-colors duration-300`}
       >
