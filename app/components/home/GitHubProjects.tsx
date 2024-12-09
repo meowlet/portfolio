@@ -63,8 +63,8 @@ export default function GitHubProjects() {
           viewport={{ once: false }}
           className="text-center mb-12"
         >
-          <div className="inline-block mb-4 font-mono text-sm bg-tertiary-container/40 dark:bg-dark-tertiary-container/40 rounded-lg px-4 py-2">
-            <div className="flex flex-col gap-1">
+          <div className="inline-block mb-4 font-mono text-xs sm:text-sm bg-tertiary-container/40 dark:bg-dark-tertiary-container/40 rounded-lg px-2 sm:px-4 py-2 max-w-full">
+            <div className="flex flex-col gap-1 break-all sm:break-normal">
               <span className="text-on-tertiary-container/70 dark:text-dark-on-tertiary-container/70">
                 {`$ curl -H "Authorization: Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN?.slice(
                   0,
@@ -87,7 +87,7 @@ export default function GitHubProjects() {
             {t("github")}
           </h2>
           {repos && (
-            <div className="flex justify-center gap-8 text-sm font-mono text-tertiary/70 dark:text-dark-tertiary/70">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm font-mono text-tertiary/70 dark:text-dark-tertiary/70">
               <span className="flex items-center gap-1">
                 <StarIcon className="w-4 h-4" />
                 {repos.total_stars} stars
