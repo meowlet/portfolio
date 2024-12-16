@@ -7,12 +7,15 @@ import { ThemeContext } from "@/app/context/ThemeContext";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { slideIn } from "@/app/utils/animations";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const t = useTranslations("nav");
+  const router = useRouter();
 
   const navItems = ["about", "projects", "skills", "contact"];
 
@@ -27,6 +30,11 @@ export default function Header() {
     return () => window.removeEventListener("resize", checkIsMobile);
   }, [isMobile]);
 
+  const handleNavClick = (section: string) => {
+    setIsMenuOpen(false);
+    router.push(`/#${section}`);
+  };
+
   return (
     <header
       className={`fixed w-full top-0 z-50 ${
@@ -40,14 +48,16 @@ export default function Header() {
         animate={isMenuOpen ? "open" : "closed"}
         className="container mx-auto px-4 h-16 flex items-center justify-between"
       >
-        <motion.div
-          variants={slideIn}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400 }}
-          className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:from-secondary hover:to-primary transition-all duration-300"
-        >
-          Meowsica
-        </motion.div>
+        <Link href="/">
+          <motion.div
+            variants={slideIn}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400 }}
+            className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:from-secondary hover:to-primary transition-all duration-300"
+          >
+            Meowsica
+          </motion.div>
+        </Link>
 
         <div className="md:hidden">
           <button
@@ -87,14 +97,13 @@ export default function Header() {
           >
             <div className="p-4 space-y-4">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item}
-                  href={`#${item}`}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-2 px-4 hover:bg-secondary/10 dark:hover:bg-dark-secondary/10 rounded-lg transition-colors"
+                  onClick={() => handleNavClick(item)}
+                  className="block w-full text-left py-2 px-4 hover:bg-secondary/10 dark:hover:bg-dark-secondary/10 rounded-lg transition-colors"
                 >
                   {t(item)}
-                </a>
+                </button>
               ))}
               <button
                 onClick={toggleTheme}
@@ -126,15 +135,15 @@ export default function Header() {
             className="hidden md:flex gap-8"
           >
             {navItems.map((item) => (
-              <motion.a
+              <motion.button
                 key={item}
-                href={`#${item}`}
+                onClick={() => handleNavClick(item)}
                 className="hover:text-primary dark:hover:text-dark-primary transition-colors relative group"
                 whileHover={{ scale: 1.05 }}
               >
                 {t(item)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-dark-primary transition-all group-hover:w-full" />
-              </motion.a>
+              </motion.button>
             ))}
           </motion.div>
 
