@@ -17,7 +17,7 @@ export default function FeaturedProjects() {
     {
       id: "tsukinari",
       icon: DevicePhoneMobileIcon,
-      github: "https://github.com/yourusername/tsukinari",
+      github: "https://github.com/meowlet/tsukinari",
       demo: "https://play.google.com/store/apps/details?id=com.meow.tsukinari",
       tech: ["Kotlin", "Jetpack Compose", "Firebase", "Material Design"],
     },
@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
       id: "himmel",
       icon: CodeBracketIcon,
       github: "https://github.com/meowlet/elysia-himmel",
-      demo: "https://your-demo-url.com",
+      demo: "https://himmel.meowsica.me",
       tech: ["Elysia.js", "Next.js", "MongoDB", "Redis"],
     },
   ];
