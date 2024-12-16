@@ -4,13 +4,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const config = {
   images: {
-    domains: ["images.unsplash.com", "picsum.photos"],
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
+    domains: ["images.unsplash.com", "picsum.photos", 'res.cloudinary.com'],
   },
 };
 
