@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import SocialLinks from "@/app/components/SocialLinks";
 
 const MotionLink = motion(Link);
 
@@ -39,6 +40,15 @@ export default function About() {
               {t("title")}
             </h2>
             <p className="text-lg">{t("description")}</p>
+            
+            {/* Social Links */}
+            <div className="pt-2">
+              <p className="text-on-surface/70 dark:text-dark-on-surface/70 mb-4">
+                {t("socialText")}
+              </p>
+              <SocialLinks />
+            </div>
+
             <div className="flex gap-4">
               <motion.a
                 whileHover={{ scale: 1.05 }}
@@ -47,13 +57,14 @@ export default function About() {
               >
                 {t("contactButton")}
               </motion.a>
-              <MotionLink
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 href="/cv.pdf"
+                target="_blank"
                 className="border border-primary dark:border-dark-primary text-primary dark:text-dark-primary px-6 py-2 rounded-full"
               >
                 {t("cvButton")}
-              </MotionLink>
+              </motion.a>
             </div>
           </div>
         </motion.div>
