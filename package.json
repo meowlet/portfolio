@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "build:fast": "next build",
+    "build:strict": "tsc && next lint && next build",
+    "type-check": "tsc --noEmit",
     "lint": "next lint"
   },
   "dependencies": {
