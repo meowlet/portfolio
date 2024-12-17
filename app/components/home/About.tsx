@@ -3,10 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
 import SocialLinks from "@/app/components/SocialLinks";
 
-const MotionLink = motion(Link);
 
 export default function About() {
   const t = useTranslations("about");
