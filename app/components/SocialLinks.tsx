@@ -22,7 +22,7 @@ export default function SocialLinks({ className = "", iconClassName = "w-6 h-6" 
     {
       name: "Facebook",
       icon: FacebookIcon,
-      href: "https://www.facebook.com/meowsicologist",
+      href: "https://www.facebook.com/meowsica",
       color: "hover:text-[#1877F2]",
     },
     {

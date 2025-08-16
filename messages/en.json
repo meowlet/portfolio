@@ -97,33 +97,42 @@
     "description": "My journey so far",
     "present": "Present",
     "items": {
+      "freelance": {
+        "company": "Freelancing",
+        "position": "Freelance Developer",
+        "location": "Ho Chi Minh City, Vietnam",
+        "highlights_1": "Built \"Sweet Treats\" website using vanilla HTML, CSS, and JavaScript with responsive UI (client hired for university assignment requirements)",
+        "highlights_2": "Delivered \"Image Overlaying\" tool for wedding photo service: high-performance batch processing with auto orientation detection",
+        "highlights_3": "Built tool to read and scale EXIF files, ensuring proper image orientation"
+      },
       "uit": {
         "company": "University Projects",
         "position": "Full Stack Developer",
         "location": "Ho Chi Minh City, Vietnam",
-        "highlights_1": "Developed The Booker - an A-grade e-commerce platform for books using modern web stack (Astro, Tailwind, Supabase)",
-        "highlights_2": "Created a mobile fiction reading platform with Kotlin and Jetpack Compose which is published on Google Play, earning A+ grade",
-        "highlights_3": "Architected a family tree management system with RESTful API backend",
-        "highlights_4": "Built a commercial-grade reading platform with premium features and payment integration (Bun, Elysia.js)",
-        "highlights_5": "Implemented secure authentication systems using JWT with access/refresh token strategy",
-        "highlights_6": "Integrated multiple payment gateways (MoMo, VNPay) for premium subscription handling"
+        "highlights_1": "Developed The Booker - A-grade e-commerce book platform using modern tech stack (Astro, Tailwind, Supabase)",
+        "highlights_2": "Created \"Tsukinari\" - Android manga reading platform using Kotlin and Jetpack Compose, achieving A+ grade and published on Google Play Store (2024)",
+        "highlights_3": "Architected RESTful API for family tree management system using ElysiaJS",
+        "highlights_4": "Built commercial-grade manga reading platform with premium features and payment integration (Bun, Elysia.js)",
+        "highlights_5": "Implemented secure authentication system using JWT with access/refresh token strategy",
+        "highlights_6": "Integrated multiple payment gateways (MoMo, VNPay) for transaction processing",
+        "highlights_7": "Developed real-time chat application using Flutter and WebSockets"
       },
-      "freelance": {
+      "discord": {
         "company": "Self-taught Developer",
         "position": "Discord Bot Developer",
         "location": "Dak Lak Province, Vietnam",
-        "highlights_1": "Achieved Discord verification status within first year of development",
-        "highlights_2": "Built and maintained a verified Discord bot serving 2000+ servers",
+        "highlights_1": "Achieved Discord official verification status in first year of development, still maintaining to this day",
+        "highlights_2": "Bot trusted by 3000+ servers, supporting 50+ languages",
         "highlights_3": "Implemented audio streaming features using FFmpeg and Discord.js"
       },
       "linux": {
         "company": "Linux & Development Tools Enthusiast",
         "position": "Linux User",
         "location": "Ho Chi Minh City, Vietnam",
-        "highlights_1": "Self-explored various Linux distributions, ultimately choosing Arch Linux for its deep learning potential",
-        "highlights_2": "Mastered Linux system internals through manual Arch installation and configuration",
-        "highlights_3": "Adopted Vim/Neovim as primary development environment, customizing for optimal workflow",
-        "highlights_4": "Configured dual-boot system for flexible development needs"
+        "highlights_1": "Self-tested multiple Linux distributions, ultimately chose Arch Linux for learning potential (and coolness factor)",
+        "highlights_2": "Gained deep Linux system knowledge through manual Arch installation and configuration",
+        "highlights_3": "Use Vim/Neovim as primary IDE",
+        "highlights_4": "Configured dual-boot system for flexible usage needs"
       },
       "early": {
         "company": "Early Tech Explorer",

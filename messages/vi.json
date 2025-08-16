@@ -98,18 +98,27 @@
     "description": "Hành trình",
     "present": "Hiện tại",
     "items": {
+      "freelance":{
+        "company": "Freelance",
+        "position": "Freelance Developer",
+        "location": "TP. Hồ Chí Minh, Việt Nam",
+        "highlights_1": "Xây dựng app \"Sweet treats\" thuần html, css, javascript có responsive UI (khách thuê làm đồ án theo yêu cầu)",
+        "highlights_2": "Viết tool \"Image Overlaying\" cho bên dịch vụ ảnh cưới, xử lý overlay hàng loạt",
+        "highlights_3": "Viết tool đọc và scale file EXIF, đảm bảo ảnh không sai orientation"
+      },
       "uit": {
         "company": "University Projects",
         "position": "Full Stack Developer",
         "location": "TP. Hồ Chí Minh, Việt Nam",
-        "highlights_1": "Phát triển The Booker - nền tảng thương mại điện tử bán sách đạt điểm A bằng tech stack mới (Astro, Tailwind, Supabase)",
+        "highlights_1": "Xây dựng nền tảng đọc truyện thương mại với tính năng premium và tích hợp thanh toán (Bun, Elysia.js)",
         "highlights_2": "Phát triển nền tảng đọc truyện di động bằng Kotlin và Jetpack Compose, đã publish lên Google Play (2024) và đạt điểm A+",
-        "highlights_3": "Thiết kế RESTful API quản lý cây phả hệ với ElysiaJS",
-        "highlights_4": "Xây dựng nền tảng đọc truyện thương mại với tính năng premium và tích hợp thanh toán (Bun, Elysia.js)",
-        "highlights_5": "Triển khai hệ thống xác thực bảo mật sử dụng JWT với chiến lược access/refresh token",
-        "highlights_6": "Tích hợp nhiều cổng thanh toán (MoMo, VNPay) để xử lý thanh toán"
+        "highlights_3": "Tích hợp nhiều cổng thanh toán (MoMo, VNPay) để xử lý thanh toán",
+        "highlights_4": "Triển khai hệ thống xác thực bảo mật sử dụng JWT với chiến lược access/refresh token",
+        "highlights_5": "Thiết kế RESTful API quản lý cây phả hệ với ElysiaJS",
+        "highlights_6": "Phát triển chat app thời gian thực bằng flutter và websockets",
+        "highlights_7": "Phát triển The Booker - nền tảng thương mại điện tử bán sách đạt điểm A bằng tech stack mới (Astro, Tailwind, Supabase)"
       },
-      "freelance": {
+      "discord": {
         "company": "Self-taught Developer",
         "position": "Discord Bot Developer",
         "location": "Tỉnh Đắk Lắk, Việt Nam",
