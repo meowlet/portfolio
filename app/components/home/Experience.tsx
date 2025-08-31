@@ -17,8 +17,8 @@ export default function Experience() {
   const experiences: Experience[] = [
     {
       id: "freelance",
-      startDate: "Jan 2021",
-      endDate: "Dec 2021",
+      startDate: "Oct 2024",
+      endDate: "Present",
       highlightCount: 3
     },
     {

@@ -25,7 +25,8 @@ export default function FeaturedProjects() {
       id: "discord_tts",
       icon: CommandLineIcon,
       github:
-        "https://discord.com/api/oauth2/authorize?client_id=909654785156853800&permissions=414568537408&scope=bot",
+        "https://top.gg/bot/909654785156853800",
+      demo: "https://discord.com/api/oauth2/authorize?client_id=909654785156853800&permissions=414568537408&scope=bot",
       tech: ["Node.js", "Discord.js", "AWS"],
     },
     {
