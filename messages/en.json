@@ -1,0 +1,148 @@
+{
+  "hero": {
+    "title": "Backend & Android Developer",
+    "description": "Third-year Software Engineering student passionate about Backend and Android development. I focus on creating scalable and efficient solutions.",
+    "contactButton": "Contact me"
+  },
+  "about": {
+    "title": "About me",
+    "description": "As a third-year Software Engineering student, I have a solid foundation in Backend and Android development. Through personal projects, I have demonstrated the ability to create considerably ok applications. I also do \"translate stuff\", mostly music and novel.",
+    "contactButton": "Contact me",
+    "cvButton": "View CV",
+    "socialText": "Some of my profiles"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "github": "GitHub Projects",
+    "viewDetails": "View details",
+    "noGithubDescription": "No description",
+    "featured": {
+      "tsukinari": {
+        "title": "Tsukinari",
+        "description": "Android manga reading application published on Google Play Store. Built with Kotlin and Jetpack Compose featuring community features like discussion forums and content sharing."
+      },
+      "discord_tts": {
+        "title": "Discord TTS Bot",
+        "description": "Officially verified Discord Text-to-Speech bot serving 3000+ servers with millions of members. Supports voice synthesis for multiple languages."
+      },
+      "himmel": {
+        "title": "Himmel",
+        "description": "Modern manga reading platform with high-performance backend using ElysiaJS and responsive frontend using Next.js. Features include user authentication and reading progress tracking."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "frontend": "Frontend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps",
+      "tools": "Development Tools"
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "description": "Leave a message, I will reply as soon as possible.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "sendButton": "Send message",
+    "socialText": "Or connect with me on social media:"
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Oops! Looks like you're lost.",
+    "clickHint": "Click on this cute Kurisu to go back home!",
+    "backButton": "Back to home",
+    "darkModeHint": "Oh no, dark mode makes me look creepy! Switch to light mode >.<",
+    "switchToLight": "Switch to light mode",
+    "stayInDark": "Stay in dark mode"
+  },
+  "coverDesign": {
+    "title": "Novel/Manga Cover Design staff of AMAK",
+    "description": "Specializing in modern anime/manga style book cover design with focus on beautiful typography and composition.",
+    "services": {
+      "title": "My services",
+      "cover": "Front and back cover design for light novels published by AMAK",
+      "gift": "Gift design for light novels published by AMAK",
+      "typography": "Title and text typography design for light novels/manga published by AMAK"
+    },
+    "viewGallery": "View showcase"
+  },
+  "gallery": {
+    "title": "Cover Design Gallery",
+    "description": "A showcase of my cover designs for light novels and manga published by AMAK.",
+    "categories": {
+      "all": "All Works",
+      "cover": "Cover Designs",
+      "gift": "Gift Designs",
+      "typography": "Typography"
+    },
+    "noItems": "Coming soon..."
+  },
+  "experience": {
+    "title": "Experience",
+    "description": "My journey so far",
+    "present": "Present",
+    "items": {
+      "freelance": {
+        "company": "Freelancing",
+        "position": "Freelance Developer",
+        "location": "Ho Chi Minh City, Vietnam",
+        "highlights_1": "Built \"Sweet Treats\" website using vanilla HTML, CSS, and JavaScript with responsive UI (client hired for university assignment requirements)",
+        "highlights_2": "Delivered \"Image Overlaying\" tool for wedding photo service: high-performance batch processing with auto orientation detection",
+        "highlights_3": "Built tool to read and scale EXIF files, ensuring proper image orientation"
+      },
+      "uit": {
+        "company": "University Projects",
+        "position": "Full Stack Developer",
+        "location": "Ho Chi Minh City, Vietnam",
+        "highlights_1": "Developed The Booker - A-grade e-commerce book platform using modern tech stack (Astro, Tailwind, Supabase)",
+        "highlights_2": "Created \"Tsukinari\" - Android manga reading platform using Kotlin and Jetpack Compose, achieving A+ grade and published on Google Play Store (2024)",
+        "highlights_3": "Architected RESTful API for family tree management system using ElysiaJS",
+        "highlights_4": "Built commercial-grade manga reading platform with premium features and payment integration (Bun, Elysia.js)",
+        "highlights_5": "Implemented secure authentication system using JWT with access/refresh token strategy",
+        "highlights_6": "Integrated multiple payment gateways (MoMo, VNPay) for transaction processing",
+        "highlights_7": "Developed real-time chat application using Flutter and WebSockets"
+      },
+      "discord": {
+        "company": "Self-taught Developer",
+        "position": "Discord Bot Developer",
+        "location": "Dak Lak Province, Vietnam",
+        "highlights_1": "Achieved Discord official verification status in first year of development, still maintaining to this day",
+        "highlights_2": "Bot trusted by 3000+ servers, supporting 50+ languages",
+        "highlights_3": "Implemented audio streaming features using FFmpeg and Discord.js"
+      },
+      "linux": {
+        "company": "Linux & Development Tools Enthusiast",
+        "position": "Linux User",
+        "location": "Ho Chi Minh City, Vietnam",
+        "highlights_1": "Self-tested multiple Linux distributions, ultimately chose Arch Linux for learning potential (and coolness factor)",
+        "highlights_2": "Gained deep Linux system knowledge through manual Arch installation and configuration",
+        "highlights_3": "Use Vim/Neovim as primary IDE",
+        "highlights_4": "Configured dual-boot system for flexible usage needs"
+      },
+      "early": {
+        "company": "Early Tech Explorer",
+        "position": "Self-taught Developer",
+        "location": "Dak Lak Province, Vietnam",
+        "highlights_1": "Built first website using pure HTML/CSS"
+      }
+    }
+  },
+  "social": {
+    "copied": "Username copied!"
+  }
+}

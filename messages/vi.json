@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "title": "Backend & Android Developer",
+    "description": "Sinh viên năm 3 ngành Kỹ thuật Phần mềm thích làm Backend dev, thích đặt nặng scalability và maintainability.",
+    "contactButton": "Liên hệ"
+  },
+  "about": {
+    "title": "Đôi nét",
+    "description": "Là sinh viên năm 3 chuyên ngành Kỹ thuật Phần mềm nên có nền tảng vừa đủ để dev Backend và Android. Có kinh nghiệm thực tế thông qua các dự án cá nhân, làm được các app/api dùng tạm ổn. Thỉnh thoảng cũng \"translate stuff\", chủ yếu là nhạc và novel.",
+    "contactButton": "Liên hệ",
+    "cvButton": "Xem CV",
+    "socialText": "Một vài profile của mình"
+  },
+  
+  "projects": {
+    "title": "Dự án nổi bật",
+    "github": "Project trên GitHub",
+    "noGithubDescription": "Không có mô tả",
+    "viewDetails": "Xem chi tiết",
+    "featured": {
+      "tsukinari": {
+        "title": "Tsukinari",
+        "description": "Ứng dụng đọc manga trên Android, được published trên Google Play Store. Dev bằng Kotlin và Jetpack Compose, có các tính năng cộng đồng như diễn đàn thảo luận và chia sẻ ni dung."
+      },
+      "discord_tts": {
+        "title": "Discord TTS Bot",
+        "description": "Bot Text-to-Speech được chính Discord verify, đang serve hơn 3000 server với hàng triệu member. Hỗ trợ giọng nói cho hơn 50 ngôn ngữ."
+      },
+      "himmel": {
+        "title": "Himmel",
+        "description": "Nền tảng đọc manga hiện đại với backend hiệu năng cao sử dụng ElysiaJS và frontend responsive sử dụng Next.js. Tích hợp các tính năng như xác thực người dùng và theo dõi tiến độ đọc."
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "frontend": "Frontend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps",
+      "tools": "Development Tools"
+    }
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "description": "Bấm gửi vui thôi chứ không gửi được.",
+    "name": "Họ tên",
+    "email": "Email",
+    "message": "Lời nhắn",
+    "sendButton": "Gửi",
+    "socialText": "Hoặc kết nối với tôi qua mạng xã hội:"
+  },
+  "nav": {
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "skills": "Kỹ năng",
+    "contact": "Liên hệ",
+    "theme": {
+      "light": "Bật đèn",
+      "dark": "Tắt đèn"
+    }
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "description": "Oops! Lạc đường mất rồi.",
+    "backButton": "Về trang chủ",
+    "clickHint": "Click bé Kurisu dễ thương để về trang chủ!",
+    "darkModeHint": "Do dark mode nên tui hết dễ thương rồi! Switch qua light mode đi!",
+    "switchToLight": "Bật đèn",
+    "stayInDark": "Không làm gì cả"
+  },
+  "coverDesign": {
+    "title": "Nhân viên thiết kế bìa Novel/Manga của AMAK",
+    "description": "Thiết kế bìa novel với phong cách anime/manga hiện đại, tập trung vào typography và composition đẹp mắt.",
+    "services": {
+      "title": "Services",
+      "cover": "Thiết kế bìa trước và sau cho sách do AMAK phát hành",
+      "gift": "Thiết kế quà tặng kèm theo sách do AMAK phát hành",
+      "typography": "Thiết kế typography cho tiêu đề và text trên sách do AMAK phát hành"
+    },
+    "viewGallery": "Xem showcase"
+  },
+  "gallery": {
+    "title": "Bộ sưu tập Thiết kế",
+    "description": "Showcase các thiết kế bìa light novel và manga đã xuất bản bởi AMAK.",
+    "categories": {
+      "all": "Tất cả",
+      "cover": "Thiết kế bìa",
+      "gift": "Quà tặng kèm",
+      "typography": "Typography"
+    },
+    "noItems": "Sắp xin được quyền publish..."
+  },
+  "experience": {
+    "title": "Kinh nghiệm",
+    "description": "Hành trình",
+    "present": "Hiện tại",
+    "items": {
+      "freelance":{
+        "company": "Freelance",
+        "position": "Freelance Developer",
+        "location": "TP. Hồ Chí Minh, Việt Nam",
+        "highlights_1": "Xây dựng app \"Sweet treats\" thuần html, css, javascript có responsive UI (khách thuê làm đồ án theo yêu cầu)",
+        "highlights_2": "Viết tool \"Image Overlaying\" cho bên dịch vụ ảnh cưới, xử lý overlay hàng loạt",
+        "highlights_3": "Viết tool đọc và scale file EXIF, đảm bảo ảnh không sai orientation"
+      },
+      "uit": {
+        "company": "University Projects",
+        "position": "Full Stack Developer",
+        "location": "TP. Hồ Chí Minh, Việt Nam",
+        "highlights_1": "Xây dựng nền tảng đọc truyện thương mại với tính năng premium và tích hợp thanh toán (Bun, Elysia.js)",
+        "highlights_2": "Phát triển nền tảng đọc truyện di động bằng Kotlin và Jetpack Compose, đã publish lên Google Play (2024) và đạt điểm A+",
+        "highlights_3": "Tích hợp nhiều cổng thanh toán (MoMo, VNPay) để xử lý thanh toán",
+        "highlights_4": "Triển khai hệ thống xác thực bảo mật sử dụng JWT với chiến lược access/refresh token",
+        "highlights_5": "Thiết kế RESTful API quản lý cây phả hệ với ElysiaJS",
+        "highlights_6": "Phát triển chat app thời gian thực bằng flutter và websockets",
+        "highlights_7": "Phát triển The Booker - nền tảng thương mại điện tử bán sách đạt điểm A bằng tech stack mới (Astro, Tailwind, Supabase)"
+      },
+      "discord": {
+        "company": "Self-taught Developer",
+        "position": "Discord Bot Developer",
+        "location": "Tỉnh Đắk Lắk, Việt Nam",
+        "highlights_1": "Được chính Discord verify trong năm đầu phát triển, đến nay vẫn còn maintain",
+        "highlights_2": "Bot được hơn 3000 server tin dùng, hỗ trợ hơn 50 ngôn ngữ",
+        "highlights_3": "Triển khai tính năng stream audio bằng FFmpeg và Discord.js"
+      },
+      "linux": {
+        "company": "Linux & Development Tools Enthusiast",
+        "position": "Linux User",
+        "location": "TP. Hồ Chí Minh, Việt Nam",
+        "highlights_1": "Tự test qua nhiều linux distro, cuối cùng vẫn chọn Arch Linux vì tiềm năng học tập (và ngầu)",
+        "highlights_2": "Nắm được hệ thống Linux thông qua việc cài đặt và cấu hình Arch thủ công",
+        "highlights_3": "Sử dụng Vim/Neovim làm ide chính",
+        "highlights_4": "Cấu hình hệ thống dual-boot cho nhu cầu sử dụng linh hoạt"
+      },
+      "early": {
+        "company": "Early Tech Explorer",
+        "position": "Self-taught Developer",
+        "location": "Tỉnh Đắk Lắk, Việt Nam",
+        "highlights_1": "Xây dựng trang web đầu tiên bằng HTML/CSS thuần"
+      }
+    }
+  },
+  "social": {
+    "copied": "Đã sao chép username!"
+  }
+}
