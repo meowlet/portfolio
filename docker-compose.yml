@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: portfolio-app
     ports:
-      - "3006:3000"
+      - "3000:3000"
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
