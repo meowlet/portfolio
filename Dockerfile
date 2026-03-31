@@ -16,9 +16,13 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Set build-time environment variables
+# Set build-time environment variables (NEXT_PUBLIC_* inlined at build)
+ARG NEXT_PUBLIC_GITHUB_USERNAME
+ARG NEXT_PUBLIC_GITHUB_TOKEN
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
+ENV NEXT_PUBLIC_GITHUB_USERNAME=${NEXT_PUBLIC_GITHUB_USERNAME}
+ENV NEXT_PUBLIC_GITHUB_TOKEN=${NEXT_PUBLIC_GITHUB_TOKEN}
 
 # Build the application
 RUN bun run build
