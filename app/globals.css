@@ -1,0 +1,771 @@
+@import "tailwindcss";
+
+/* ==================================================================
+   Aozora: systems under the open sky
+   ------------------------------------------------------------------
+   Tokens live as CSS variables so the 晴 / 夜 route can swap the
+   whole world from the root element, with no re-render.
+
+   Radius scale: 0. Every block, border and hairline is square.
+   Circles are reserved for marks (the seal, the route disc, node
+   ticks in a diagram). Documented once, kept everywhere.
+   ================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* paper & ink */
+  --paper: #f7fbfe;
+  --cloud: #ffffff;
+  --wash: #e3f0f9;
+  --horizon: #9dc3df;
+  --deep: #2f5d86;
+  --ink: #14212c;
+  --ink-soft: #4e6678;
+  --seal: #a63a2e;
+
+  /* the sky itself */
+  --sky-top: #b7d6ef;
+  --sky-mid: #daecfa;
+  --sky-low: #eff7fd;
+  --sky-glow: rgb(255 238 209 / 0.62);
+  --luminary: #fffdf6;
+  --sea: #d9eaf7;
+  --cloud-fill: #f3f9ff;
+  --cloud-shade: #c6dbec;
+  --cloud-op-1: 0.78;
+  --cloud-op-2: 0.68;
+  --cloud-op-3: 0.58;
+  --star-opacity: 0;
+
+  --star-halo: rgb(47 93 134 / 0.4);
+  --hairline: rgb(157 195 223 / 0.6);
+  --hairline-strong: rgb(157 195 223 / 0.95);
+  --veil: rgb(247 251 254 / 0.82);
+
+  /* the diagram's three link families: request, platform, boundary */
+  --edge-path: #3d7cae;
+  --edge-support: #a97a22;
+  --edge-external: #7f6cc4;
+  --edge-halo: rgb(247 251 254 / 0.96);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="night"] {
+  color-scheme: dark;
+
+  --paper: #0c1722;
+  --cloud: #13212f;
+  --wash: #101e2b;
+  --horizon: #365670;
+  --deep: #9cc8ea;
+  --ink: #e6eef5;
+  --ink-soft: #9db2c4;
+  --seal: #b0453a;
+
+  --sky-top: #060e16;
+  --sky-mid: #0b1824;
+  --sky-low: #162839;
+  --sky-glow: rgb(176 208 236 / 0.16);
+  --luminary: #dce9f6;
+  --sea: #0a1521;
+  --cloud-fill: #9db6cc;
+  --cloud-shade: #6b87a3;
+  /* Kept barely there on purpose. Over a sky this dark, a drifting cloud
+     of even 0.1 reads as a flat wash with a visible rim rather than
+     weather, and because they sail past, the sky goes seamless the moment
+     one leaves and patchy the moment one arrives. Under ~0.05 the wash
+     melts into the gradient, so the sky stays seamless whatever is
+     crossing it, at any zoom. */
+  --cloud-op-1: 0.03;
+  --cloud-op-2: 0.04;
+  --cloud-op-3: 0.055;
+  --star-opacity: 1;
+
+  --star-halo: rgb(214 232 248 / 0.65);
+  --hairline: rgb(54 86 112 / 0.75);
+  --hairline-strong: rgb(84 122 152 / 0.9);
+  --veil: rgb(12 23 34 / 0.78);
+
+  --edge-path: #7db4e4;
+  --edge-support: #e3bd70;
+  --edge-external: #b3a0f0;
+  --edge-halo: rgb(12 23 34 / 0.92);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-cloud: var(--cloud);
+  --color-wash: var(--wash);
+  --color-horizon: var(--horizon);
+  --color-deep: var(--deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-seal: var(--seal);
+
+  --font-sans: var(--font-zen-kaku), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), var(--font-jp-mincho), Georgia, serif;
+  --font-jp-mincho: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP",
+    "Noto Serif JP", "MS PMincho", serif;
+
+  --text-display: clamp(2.05rem, 4.6vw, 4rem);
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.015em;
+  --text-chapter: clamp(1.75rem, 3.4vw, 2.5rem);
+  --text-chapter--line-height: 1.15;
+  --text-dek: clamp(1.125rem, 1.9vw, 1.5rem);
+  --text-dek--line-height: 1.4;
+  --text-lead: 1.1875rem;
+  --text-lead--line-height: 1.65;
+  --text-prose: 1.125rem;
+  --text-prose--line-height: 1.75;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.55;
+  --text-tiny: 0.8125rem;
+  --text-tiny--line-height: 1.5;
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-block-start: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+    /* the page still scrolls; it just does not advertise a scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-zen-kaku), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--deep) 24%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--deep);
+    outline-offset: 2px;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Sky
+   ------------------------------------------------------------------ */
+
+@layer components {
+  .sky {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: linear-gradient(
+      to bottom,
+      var(--sky-top) 0%,
+      var(--sky-mid) 46%,
+      var(--sky-low) 78%,
+      var(--sky-low) 100%
+    );
+  }
+
+  .sky__luminary {
+    position: absolute;
+    inset-block-start: 8%;
+    inset-inline-end: 12%;
+    inline-size: min(42rem, 70vw);
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    /* eased falloff: the slope leaves and lands at zero, so the glow
+       spends itself instead of stopping at a rim, and still ends
+       before the circle clips it */
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--sky-glow) 85%, transparent) 0%,
+      color-mix(in srgb, var(--sky-glow) 81%, transparent) 10%,
+      color-mix(in srgb, var(--sky-glow) 68%, transparent) 20%,
+      color-mix(in srgb, var(--sky-glow) 50%, transparent) 30%,
+      color-mix(in srgb, var(--sky-glow) 31%, transparent) 40%,
+      color-mix(in srgb, var(--sky-glow) 18%, transparent) 47%,
+      color-mix(in srgb, var(--sky-glow) 8.6%, transparent) 54%,
+      color-mix(in srgb, var(--sky-glow) 2.9%, transparent) 60%,
+      color-mix(in srgb, var(--sky-glow) 0.4%, transparent) 65%,
+      transparent 68%
+    );
+    transition: background 900ms var(--ease-out);
+  }
+
+  .sky__moon {
+    position: absolute;
+    inset-block-start: 14%;
+    inset-inline-end: 18%;
+    inline-size: 1.5rem;
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    background: radial-gradient(
+      circle at 38% 34%,
+      rgb(248 252 255 / 0.95),
+      rgb(219 232 245 / 0.8) 54%,
+      rgb(198 219 240 / 0.22) 100%
+    );
+    box-shadow: 0 0 2rem 0.35rem var(--sky-glow);
+    opacity: var(--star-opacity);
+    transition: opacity 900ms var(--ease-out);
+  }
+
+  .sky__stars {
+    position: absolute;
+    inset: 0 0 22% 0;
+    opacity: var(--star-opacity);
+    transition: opacity 900ms var(--ease-out);
+    background-repeat: repeat;
+    background-size: 26rem 22rem;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 18%, #ffffff, transparent),
+      radial-gradient(1px 1px at 44% 62%, #e8f1f9, transparent),
+      radial-gradient(1.2px 1.2px at 71% 27%, #ffffff, transparent),
+      radial-gradient(1px 1px at 88% 74%, #cfe0ee, transparent),
+      radial-gradient(1px 1px at 26% 81%, #ffffff, transparent),
+      radial-gradient(1.4px 1.4px at 58% 9%, #f4f9ff, transparent),
+      radial-gradient(1px 1px at 7% 51%, #dbe8f3, transparent),
+      radial-gradient(1px 1px at 79% 46%, #ffffff, transparent);
+  }
+
+  .clouds {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .cloud {
+    position: absolute;
+    inset-inline-start: 0;
+    display: block;
+    /* parked position, used as-is under prefers-reduced-motion */
+    transform: translate3d(var(--x, 0), 0, 0);
+    animation: sail linear infinite;
+    will-change: transform;
+  }
+
+  .cloud svg {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 700 / 300;
+  }
+
+  .cloud__body {
+    fill: var(--cloud-fill);
+  }
+
+  .cloud__shade {
+    fill: var(--cloud-shade);
+    opacity: 0.5;
+  }
+
+  /* high, mid, low: the same shapes at three distances */
+
+  .cloud--a {
+    --x: 12vw;
+    inset-block-start: 11%;
+    inline-size: min(40rem, 112vw);
+    opacity: var(--cloud-op-1);
+    animation-duration: 420s;
+    animation-delay: -60s;
+  }
+
+  .cloud--b {
+    --x: 58vw;
+    inset-block-start: 5%;
+    inline-size: min(26rem, 74vw);
+    opacity: var(--cloud-op-1);
+    animation-duration: 360s;
+    animation-delay: -240s;
+  }
+
+  .cloud--c {
+    --x: 4vw;
+    inset-block-start: 29%;
+    inline-size: min(46rem, 126vw);
+    opacity: var(--cloud-op-2);
+    animation-duration: 320s;
+    animation-delay: -150s;
+  }
+
+  .cloud--d {
+    --x: 68vw;
+    inset-block-start: 46%;
+    inline-size: min(33rem, 96vw);
+    opacity: var(--cloud-op-2);
+    animation-duration: 280s;
+    animation-delay: -310s;
+  }
+
+  .cloud--e {
+    --x: 24vw;
+    inset-block-start: 66%;
+    inline-size: min(56rem, 136vw);
+    opacity: var(--cloud-op-3);
+    animation-duration: 240s;
+    animation-delay: -95s;
+  }
+
+  .cloud--f {
+    --x: 82vw;
+    inset-block-start: 76%;
+    inline-size: min(28rem, 84vw);
+    opacity: var(--cloud-op-3);
+    animation-duration: 260s;
+    animation-delay: -215s;
+  }
+
+  /* The horizon: the waterline the rest of the page is measured against.
+     A 1px rule keeps its hard edge at 100% and antialiases to a softer
+     two-row line at 125% -- that is how hairlines work, and the line is
+     meant to be seen, so it is drawn as one. */
+  .horizon {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    block-size: 15%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--sea) 78%,
+      var(--paper) 100%
+    );
+    border-block-start: 1px solid var(--hairline-strong);
+  }
+
+  /* a reflected line of type, the way the sky is reflected in water */
+  .reflection {
+    transform: scaleY(-1);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 4%,
+      rgb(0 0 0 / 0.42) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 4%,
+      rgb(0 0 0 / 0.42) 100%
+    );
+    user-select: none;
+  }
+
+  .wrap {
+    margin-inline: auto;
+    inline-size: 100%;
+    max-inline-size: 76rem;
+    padding-inline: 1.25rem;
+  }
+
+  .rise {
+    animation: rise 700ms var(--ease-out) backwards;
+    animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+  }
+
+  @media (min-width: 48rem) {
+    .wrap {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .wrap {
+      padding-inline: 3rem;
+    }
+  }
+
+  .route-glyph {
+    transition:
+      color 600ms var(--ease-out),
+      opacity 600ms var(--ease-out);
+  }
+
+  .route-glyph--day {
+    color: var(--ink);
+    opacity: 1;
+  }
+
+  .route-glyph--night {
+    color: var(--ink-soft);
+    opacity: 0.35;
+  }
+
+  [data-theme="night"] .route-glyph--day {
+    color: var(--ink-soft);
+    opacity: 0.35;
+  }
+
+  [data-theme="night"] .route-glyph--night {
+    color: var(--ink);
+    opacity: 1;
+  }
+
+  .glyph-split {
+    text-shadow: 0 0 0 transparent;
+    transition: text-shadow 220ms var(--ease-out);
+  }
+
+  .glyph-split:hover,
+  .glyph-split:focus-visible {
+    text-shadow:
+      0.045em 0 0 rgb(166 58 46 / 0.55),
+      -0.045em 0 0 rgb(47 93 134 / 0.55);
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  [data-theme="night"] .grain {
+    mix-blend-mode: screen;
+    opacity: 0.1;
+  }
+
+  /* ------------------------------------------------------------------
+     Type
+     ------------------------------------------------------------------ */
+
+  .vertical-jp {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.22em;
+  }
+
+  /* the epigraph runs horizontally on small screens and stands up on wide ones */
+  @media (min-width: 64rem) {
+    .vertical-jp-lg {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+    }
+  }
+
+  .prose-aozora {
+    max-inline-size: 68ch;
+  }
+
+  .link-quiet {
+    color: var(--deep);
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in oklab, var(--deep) 35%, transparent);
+    transition:
+      text-decoration-color 200ms var(--ease-out),
+      color 200ms var(--ease-out);
+  }
+
+  .link-quiet:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.15rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    transition:
+      transform 180ms var(--ease-out),
+      background-color 200ms var(--ease-out),
+      border-color 200ms var(--ease-out),
+      color 200ms var(--ease-out);
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn--primary {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .btn--primary:hover {
+    background-color: color-mix(in oklab, var(--ink) 86%, var(--deep));
+  }
+
+  .btn--quiet {
+    border-color: var(--hairline-strong);
+    color: var(--ink);
+  }
+
+  .btn--quiet:hover {
+    border-color: var(--deep);
+    color: var(--deep);
+  }
+
+  /* ------------------------------------------------------------------
+     Diagram
+     ------------------------------------------------------------------ */
+
+  /* no data-state yet: nothing has run, so the chart simply stands */
+
+  .diagram[data-state="measuring"] [data-appear] {
+    opacity: 0;
+  }
+
+  .diagram[data-state="drawn"] [data-appear] {
+    opacity: 1;
+    transition: opacity 620ms var(--ease-out)
+      calc(120ms + var(--i, 0) * 90ms);
+  }
+
+  .diagram[data-state="measuring"] [data-draw] {
+    stroke-dasharray: var(--draw-length, 0);
+    stroke-dashoffset: var(--draw-length, 0);
+  }
+
+  .diagram[data-state="drawn"] [data-draw] {
+    stroke-dasharray: var(--draw-length, 0);
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 900ms var(--ease-out)
+      calc(120ms + var(--i, 0) * 90ms);
+  }
+
+  /* the chart itself: stars, links, names */
+
+  .star__spark {
+    fill: var(--ink);
+  }
+
+  .star__glow {
+    opacity: 0.75;
+  }
+
+  .star__label {
+    fill: var(--ink);
+    font-size: 14px;
+  }
+
+  .star__sub {
+    fill: var(--ink-soft);
+    font-size: 11px;
+  }
+
+  .star--support .star__spark {
+    fill: var(--ink-soft);
+  }
+
+  .star--external .star__spark,
+  .star--external .star__label {
+    fill: var(--ink-soft);
+  }
+
+  .edge--path {
+    stroke: var(--edge-path);
+  }
+
+  .edge--support {
+    stroke: var(--edge-support);
+  }
+
+  .edge--external {
+    stroke: var(--edge-external);
+  }
+
+  /* what travels a line, named quietly beside it. The halo is wide on
+     purpose: where a link passes behind a caption it reads as a plate,
+     the way the printed charts do it. */
+  .edge-label {
+    fill: var(--ink-soft);
+    font-size: 10.5px;
+    letter-spacing: 0.01em;
+    paint-order: stroke;
+    stroke: var(--edge-halo);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+  }
+
+  .arrow {
+    fill: none;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .arrow--path {
+    stroke: var(--edge-path);
+  }
+
+  .arrow--support {
+    stroke: var(--edge-support);
+  }
+
+  .arrow--external {
+    stroke: var(--edge-external);
+  }
+
+  .diagram[data-state="measuring"] [data-arrow] {
+    opacity: 0;
+  }
+
+  .diagram[data-state="drawn"] [data-arrow] {
+    opacity: 1;
+    transition: opacity 380ms var(--ease-out)
+      calc(820ms + var(--i, 0) * 90ms);
+  }
+
+  .diagram[data-state="measuring"] [data-edge-label] {
+    opacity: 0;
+  }
+
+  .diagram[data-state="drawn"] [data-edge-label] {
+    opacity: 1;
+    transition: opacity 420ms var(--ease-out)
+      calc(640ms + var(--i, 0) * 90ms);
+  }
+
+  .star-glow-inner {
+    stop-color: var(--star-halo);
+    stop-opacity: 1;
+  }
+
+  .star-glow-mid {
+    stop-color: var(--star-halo);
+    stop-opacity: 0.26;
+  }
+
+  .star-glow-outer {
+    stop-color: var(--star-halo);
+    stop-opacity: 0;
+  }
+
+  /* the constellation only comes alive on the night route */
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.45;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  [data-theme="night"] .star--twinkle .star__glow {
+    animation: twinkle var(--tw, 9s) ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * -1.9s);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Motion
+   ------------------------------------------------------------------ */
+
+/* every cloud crosses the sky on the same course, at its own speed */
+@keyframes sail {
+  from {
+    transform: translate3d(-70vw, 0, 0);
+  }
+  to {
+    transform: translate3d(170vw, 0, 0);
+  }
+}
+
+/* the hero load sequence: four lines, in reading order, once */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: route-wipe 620ms var(--ease-out);
+}
+
+@keyframes route-wipe {
+  from {
+    clip-path: circle(0% at var(--route-x, 92%) var(--route-y, 6%));
+  }
+  to {
+    clip-path: circle(142% at var(--route-x, 92%) var(--route-y, 6%));
+  }
+}
+
+html.route-switching,
+html.route-switching * {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .cloud {
+    animation: none;
+  }
+
+  .rise {
+    animation: none;
+  }
+
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
