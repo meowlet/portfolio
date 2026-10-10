@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#a63a2e" />
+  <rect
+    x="1.5"
+    y="1.5"
+    width="29"
+    height="29"
+    fill="none"
+    stroke="#ffffff"
+    stroke-opacity="0.32"
+    stroke-width="1"
+  />
+  <text
+    x="16"
+    y="17"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="Hiragino Mincho ProN, Yu Mincho, Noto Serif CJK JP, serif"
+    font-size="20"
+    fill="#ffffff"
+  >猫</text>
+</svg>
